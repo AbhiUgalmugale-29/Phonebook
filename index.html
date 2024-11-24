@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 class="app-heading">Phone Book</h1>
+
+    <div class="app-container">
+        <div class="search-container">
+            <input type="text" placeholder="Search.." id="search">
+            <img src="./img/search-user.png" alt="search-icon" onclick="search()" class="search-btn">
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const contacts = {
+            aryan: "8879462138",
+            rahul: "9876543210",
+            aditi: "8814567890",
+            sachin: "1234567890",
+            priya: "9876485210",
+            pradip: "9524730158"
+        }
+
+        function search() {
+            const searchInput = document.getElementById("search");
+            const query = searchInput.value.toLowerCase();
+            const mobileNo = contacts[query];
+
+            const result = document.getElementById("result");
+
+            if (mobileNo) {
+                result.innerText = `Mobile Number of ${query} is ${mobileNo}`;
+                result.style.color = "green";
+            } else {
+                result.innerText = `Contact Not Found`;
+                result.style.color = "red";
+            }
+
+            searchInput.value = ""
+        }
+
+    </script>
+</body>
+
+</html>
